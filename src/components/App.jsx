@@ -1,7 +1,10 @@
 import React from 'react';
+import Header from './Header';
 
 function App() {
-    return <h1>Your primier source for Chicago news</h1>;
+    return <div>
+        <Header />
+    </div>;
 }
 
 export default App;
