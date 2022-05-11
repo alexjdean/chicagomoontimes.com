@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App.jsx'
 
 ReactDOM.render(
-  <h1>Your premier source for Chicago news</h1>, 
+  <App />, 
   document.getElementById("root")
 );
