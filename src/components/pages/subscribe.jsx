@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const Subscribe = () => {
   return (
     <div
       style={{
@@ -11,9 +11,9 @@ const About = () => {
         color: '#fff'
       }}
     >
-      <h1>About</h1>
+      <h1>Subscribe</h1>
     </div>
   );
 };
 
-export default About;
+export default Subscribe;
