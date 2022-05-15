@@ -17,14 +17,17 @@ const Navbar = () => {
         </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/about' activeStyle>
+          <NavLink style={{ marginRight: 20 }} to='/about' activeStyle>
             About
           </NavLink>
-          <NavLink to={{pathname:'https://www.buymeacoffee.com/moontimes'}} activeStyle>
+          <NavLink style={{ marginRight: 20 }} to='/archives' activeStyle>
+            Archives
+          </NavLink>
+          <NavLink style={{ marginRight: 20 }} to='/donate' activeStyle>
             Donate
           </NavLink>
           <NavBtn>
-            <NavBtnLink to='/signin'>Subscribe</NavBtnLink>
+            <NavBtnLink to='/subscribe'>Subscribe</NavBtnLink>
           </NavBtn>
         </NavMenu>
       </Nav>
@@ -32,15 +35,4 @@ const Navbar = () => {
   );
 };
   
-  export default Navbar;
-
-  // function Header() {
-    
-
-//     return (<div className='nav'>
-//         
-//         <h1 className='title'>CHICAGO MOON<DarkModeIcon />TIMES</h1>
-//         <a href='#About'>About</a>
-//         <a href='https://www.buymeacoffee.com/moontimes'>Donate</a>
-//     </div>);
-// }
+export default Navbar;
