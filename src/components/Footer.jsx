@@ -12,8 +12,9 @@ function Footer() {
         position: 'absolute',
         bottom: '0',
         width: '100%',
-        height: '2.5rem'
+        height: '3.5rem'
     }}>
+      <p>Thoughts? Opinions? Story suggestions? Send them all to moontimeletters@gmail.com</p>
       <p>Copyright ⓒ {year}</p>
     </footer>
   );

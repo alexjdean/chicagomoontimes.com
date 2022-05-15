@@ -10,3 +10,7 @@
 .navBarSpace {
   margin: 5px;
 }
+
+.navHover:hover {
+  color: #1383cf
+}
