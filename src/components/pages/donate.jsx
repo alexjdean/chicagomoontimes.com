@@ -4,7 +4,7 @@ const Donate = () => {
   return (
     <div
       style={{
-        background: '#060930',
+        background: '#303030',
         backgroundImage: "url('https://www.transparenttextures.com/patterns/mooning.png')",
         display: 'flex',
         height: '84vh',

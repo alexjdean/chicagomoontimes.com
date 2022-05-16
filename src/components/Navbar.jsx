@@ -20,9 +20,6 @@ const Navbar = () => {
           <NavLink className="navHover" style={{ marginRight: 20 }} to='/about' activeStyle>
             About
           </NavLink>
-          <NavLink className="navHover" style={{ marginRight: 20 }} to='/archives' activeStyle>
-            Archives
-          </NavLink>
           <NavLink className="navHover" style={{ marginRight: 20 }} to='/donate' activeStyle>
             Donate
           </NavLink>
