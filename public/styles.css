@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 
 * {
-    font-family: 'Sora', sans-serif;
+    font-family: 'BentonSans', sans-serif;
+    font-weight: bold;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -11,6 +12,29 @@
   margin: 5px;
 }
 
+h1:hover {
+  color: #1383cf;
+}
+
 .navHover:hover {
-  color: #1383cf
+  color: #1383cf;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+}
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.box2 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 5;
 }

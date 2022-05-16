@@ -16,20 +16,23 @@ function createCard(article) {
       title={article.title}
       date={months[articleDate.getMonth()] + ' ' + articleDate.getDate() + ', ' + articleDate.getFullYear()}
       image={article.image}
+      spotlight={article.spotlight}
     />
   )
 }
 
 const Home = () => {
+  Info.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
+
   return (
     <div
       style={{
-        background: '#060930',
+        background: '#303030',
         backgroundImage: "url('https://www.transparenttextures.com/patterns/mooning.png')",
         display: 'flex',
         flexWrap: "wrap",
-        height: '84vh',
         color: '#fff',
+        minHeight: "82vh"
       }}
     >
       <div style={{
@@ -37,14 +40,18 @@ const Home = () => {
         display: 'block',
         padding: "1rem"
       }}>
-        <p><i>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {dayOfWeek}, {month} {day}, {year}</i></p>
+        <p><i style={{
+          fontFamily: "'BentonSans', sans-serif",
+          fontWeight: "normal"
+        }}>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {dayOfWeek}, {month} {day}, {year}</i></p>
         <hr style={{marginTop: "1rem"}} />
 
         <div style={{
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap"
+          justifyContent: "center",
+          display: "inline" 
         }}>
+
+          
           {Info.map(createCard)}
         </div>
       </div>

@@ -5,17 +5,22 @@ function Footer() {
 
   return (
     <footer style={{
-        background: '#060930',
+        background: '#303030',
         backgroundImage: "url('https://www.transparenttextures.com/patterns/mooning.png')",
         color: '#fff',
         textAlign: 'center',
-        position: 'absolute',
         bottom: '0',
         width: '100%',
-        height: '3.5rem'
+        height: '5rem'
     }}>
-      <p>Thoughts? Opinions? Story suggestions? Send them all to moontimeletters@gmail.com</p>
-      <p>Copyright ⓒ {year}</p>
+      <p style={{
+          fontFamily: "'BentonSans', sans-serif",
+          fontWeight: "normal"
+        }}>Thoughts? Opinions? Story suggestions? Send them all to moontimeletters@gmail.com</p>
+      <p style={{
+          fontFamily: "'BentonSans', sans-serif",
+          fontWeight: "normal"
+        }}>Chicago Moon-Times ⓒ {year}</p>
     </footer>
   );
 }
