@@ -1,4 +1,3 @@
-import { padding, style } from "@mui/system";
 import React from "react";
 
 function ArticleCard(props) {

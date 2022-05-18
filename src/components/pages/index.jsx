@@ -1,6 +1,7 @@
 import React from 'react';
 import Info from '../info'
 import ArticleCard from "../ArticleCard"
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 let dayOfWeek = new Date().toLocaleString('en-us', {  weekday: 'long' });
 let month = new Date().toLocaleString('default', { month: 'long' });
@@ -11,15 +12,18 @@ function createCard(article) {
   var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   var articleDate = new Date(article.date);
 
-  return (
-    <ArticleCard 
-      title={article.title}
-      date={months[articleDate.getMonth()] + ' ' + articleDate.getDate() + ', ' + articleDate.getFullYear()}
-      image={article.image}
-      spotlight={article.spotlight}
-    />
-  )
+  return (<>
+      <Link style={{color : "white"}} to={"/" + article.path}>
+        <ArticleCard 
+          title={article.title}
+          date={months[articleDate.getMonth()] + ' ' + articleDate.getDate() + ', ' + articleDate.getFullYear()}
+          image={article.image}
+          spotlight={article.spotlight}
+        />
+      </Link>
+  </>);
 }
+
 
 const Home = () => {
   Info.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
