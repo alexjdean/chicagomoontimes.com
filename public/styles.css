@@ -8,6 +8,15 @@
     padding: 0;
 }
 
+@media only screen and (min-device-width: 480px){
+  article-title {
+    font-size: "1.75rem";
+    padding: "0.5rem 0";
+    max-height: "100%";
+    max-width: "100%";
+  }
+}
+
 .navBarSpace {
   margin: 5px;
 }
