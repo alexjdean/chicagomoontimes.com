@@ -1,7 +1,7 @@
 import React from 'react';
-import Info from '../info'
 import ArticleCard from "../ArticleCard"
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import articles from '../util/articles_db'
 
 let dayOfWeek = new Date().toLocaleString('en-us', {  weekday: 'long' });
 let month = new Date().toLocaleString('default', { month: 'long' });
@@ -24,10 +24,9 @@ function createCard(article) {
   </>);
 }
 
-
 const Home = () => {
-  Info.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
-
+  articles.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
+  
   return (
     <div
       style={{
@@ -56,7 +55,7 @@ const Home = () => {
         }}>
 
           
-          {Info.map(createCard)}
+          {articles.map(createCard)}
         </div>
       </div>
     </div>

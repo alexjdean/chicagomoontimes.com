@@ -13,7 +13,8 @@ function createParagraph(sentences) {
 }
 
 function parseContent(content) {
-  let result = content.split(/\r?\n/);
+  let result = content.split("\\n");
+  console.log(content);
 
   return result.map(createParagraph);
 }
