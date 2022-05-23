@@ -1,25 +1,106 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive'
 
 function createParagraph(sentences) {
   return (<div>
     <p style={{
-            fontSize: "1.75rem",
-            fontFamily: "Arial,Helvetica,sans-serif",
-            fontWeight: "normal",
-            padding: "0 22.5rem"
-      }}>{sentences}</p>
+      fontFamily: "Arial,Helvetica,sans-serif",
+      fontSize: "1.75rem",
+      fontWeight: "normal"
+    }}>{sentences}</p>
     <br/>
   </div>);
 }
 
-function parseContent(content) {
+function parseContent(content, textStyle) {
   let result = content.split("\\n");
   console.log(content);
 
-  return result.map(createParagraph);
-}
+  return (<div style={textStyle}>
+    {result.map(createParagraph)}
+  </div>);
+} 
 
 function Article(props) {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isDesktop = useMediaQuery({ query: '(min-width: 1500px)' })
+  
+  let titleStyle = null;
+  let imageStyle = null;
+  let dateStyle = null;
+  let textStyle = null;
+
+  if(isTabletOrMobile) {
+    titleStyle = {
+      fontSize: "2.7rem",
+      padding: "0.5rem 0",
+      maxHeight: "100%",
+      maxWidth: "90%"
+    };
+
+    imageStyle = {
+      maxHeight: "90%",
+      maxWidth: "90%"
+    };
+
+    dateStyle = {
+      color: "#DDDDDD",
+      fontFamily: "'BentonSans', sans-serif",
+      fontWeight: "normal",
+      paddingBottom: "2rem"
+    };
+
+    textStyle = {
+      padding: "0 1.5rem"
+    };
+  } else if(isDesktop) {
+    titleStyle = {
+      fontSize: "2.7rem",
+      padding: "0.5rem 0",
+      maxHeight: "100%",
+      maxWidth: "50%"
+    };
+
+    imageStyle = {
+      maxHeight: "80%",
+      maxWidth: "50%"
+    };
+
+    dateStyle = {
+      color: "#DDDDDD",
+      fontFamily: "'BentonSans', sans-serif",
+      fontWeight: "normal",
+      paddingBottom: "2rem"
+    };
+
+    textStyle = {
+      padding: "0 30rem"
+    };
+  } else {
+    titleStyle = {
+      fontSize: "2.7rem",
+      padding: "0.5rem 0",
+      maxHeight: "100%",
+      maxWidth: "50%"
+    };
+
+    imageStyle = {
+      maxHeight: "80%",
+      maxWidth: "50%"
+    };
+
+    dateStyle = {
+      color: "#DDDDDD",
+      fontFamily: "'BentonSans', sans-serif",
+      fontWeight: "normal",
+      paddingBottom: "2rem"
+    };
+
+    textStyle = {
+      padding: "0 22.5rem"
+    };
+  }
+
   return (
     <div
       style={{
@@ -33,29 +114,13 @@ function Article(props) {
         alignItems: "center"
       }}
     >
-
-        <h2 style={{
-            fontSize: "2.7rem",
-            padding: "0.5rem 0",
-            maxHeight: "100%",
-            maxWidth: "50%"
-        }}>{props.title}</h2>
-
-        <h3 style={{
-            color: "#DDDDDD",
-            fontFamily: "'BentonSans', sans-serif",
-            fontWeight: "normal",
-            paddingBottom: "2rem"
-        }}>{props.date}</h3> 
-
-      <img style={{
-            maxHeight: "80%",
-            maxWidth: "50%"
-        }} src={props.image} alt="article_image"/>
+        <h2 style={titleStyle}>{props.title}</h2>
+        <h3 style={dateStyle}>{props.date}</h3> 
+        <img style={imageStyle} src={props.image} alt="article_image"/>
 
         <br/>
 
-        {parseContent(props.content)}
+        {parseContent(props.content, textStyle)}
         </div>
   );
 };
