@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleCard from "../ArticleCard"
 import { Link } from 'react-router-dom';
-import articles from '../util/articles_db'
+import articles from '../util/getArticles'
 
 let dayOfWeek = new Date().toLocaleString('en-us', {  weekday: 'long' });
 let month = new Date().toLocaleString('default', { month: 'long' });

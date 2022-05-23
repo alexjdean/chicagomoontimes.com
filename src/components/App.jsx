@@ -7,7 +7,7 @@ import Donate from './pages/donate'
 import Subscribe from './pages/subscribe'
 import Footer from './Footer'
 import Article from "./pages/article"
-import articles from "./util/articles_db"
+import articles from "./util/getArticles"
 
 function createArticleRoutes(article) {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

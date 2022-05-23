@@ -8,6 +8,11 @@
     padding: 0;
 }
 
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
 @media only screen and (min-device-width: 480px){
   article-title {
     font-size: "1.75rem";
@@ -25,8 +30,10 @@ h1:hover {
   color: #1383cf;
 }
 
-.navHover:hover {
-  color: #1383cf;
+@media screen and (min-width: 1000px) {
+  .navHover:hover {
+    color: #1383cf;
+  }
 }
 
 .wrapper {
