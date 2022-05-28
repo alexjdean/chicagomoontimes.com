@@ -82,12 +82,12 @@ export default function Form() {
           name="email"
         />
         {submitted && !values.email ? <span id="email-error">Please enter an email</span> : null}
-        <input 
+        {submitted && valid ? null : <input 
             id="submission" 
             class="form-field button" 
             type="submit" 
             placeholder="Subscribe" 
-            name="subscribe" />
+            name="subscribe" />}
       </form>
     </div>
   );
