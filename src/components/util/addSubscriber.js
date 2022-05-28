@@ -24,11 +24,9 @@ function addSubscriber(values) {
             snapshot.docs.forEach((docs) => {
                 currentSubscribers.push({ ...docs.data(), id: docs.id})
             });
-        })
-        .catch(err => {
-            console.log(err.message);
         });
     
+    console.log(currentSubscribers);
     for(let i = 0; i < currentSubscribers.length; i++) {
         if(values.email === currentSubscribers[i].email) {
             registered = true;

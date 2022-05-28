@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 function ArticleCard(props) {
     let page_style = {};
     let title_style = {};
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
     if (props.spotlight === true) {
         page_style = {

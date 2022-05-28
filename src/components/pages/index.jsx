@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleCard from "../ArticleCard"
 import { Link } from 'react-router-dom';
-import articles from '../util/getArticles'
+import articles from '../util/articles'
 
 let dayOfWeek = new Date().toLocaleString('en-us', {  weekday: 'long' });
 let month = new Date().toLocaleString('default', { month: 'long' });
@@ -50,7 +50,7 @@ const Home = () => {
         <hr style={{marginTop: "1rem"}} />
 
         <div style={{
-          justifyContent: "center",
+          alignItems: "center",
           display: "inline" 
         }}>
 

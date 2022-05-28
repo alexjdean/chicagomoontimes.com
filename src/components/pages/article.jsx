@@ -13,8 +13,7 @@ function createParagraph(sentences) {
 }
 
 function parseContent(content, textStyle) {
-  let result = content.split("\\n");
-  console.log(content);
+  let result = content.split("\n");
 
   return (<div style={textStyle}>
     {result.map(createParagraph)}

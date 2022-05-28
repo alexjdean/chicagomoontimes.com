@@ -7,19 +7,19 @@ import Donate from './pages/donate'
 import Subscribe from './pages/subscribe'
 import Footer from './Footer'
 import Article from "./pages/article"
-import articles from "./util/getArticles"
+import articles from "./util/articles"
 
 function createArticleRoutes(article) {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var articleDate = new Date(article.date);
 
-    return (<><Route path={"/" + article.path}
+    return (<Route path={"/" + article.path}
         element={<Article
             title={article.title}
             date={months[articleDate.getMonth()] + ' ' + articleDate.getDate() + ', ' + articleDate.getFullYear()}
             image={article.image}
             content={article.content}
-        />}/></>);
+        />}/>);
 }
 
 function App() {
