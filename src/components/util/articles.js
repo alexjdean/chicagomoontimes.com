@@ -71,7 +71,7 @@ const articles = [
         content: `
         Chicago might as well display a massive billboard when driving into the city, flying in at O'Hare, or sailing from the Old World via the Northwest Passage to arrive at Navy Pier: "Free Executive Branch of Third Largest City!" The only cost being, of course, being utterly despised by most residents of the city and state, and blamed for every problem.
 
-        When former US Education Secretary Arne Duncan and US Rep. Mike Quigley (D-Chicago) declined to run against Mayor Lori Lightfoot, we at the Moon-Times were brave enough to ask the daunting question: Does anyone <em>really</em> want to run this city? Hell, it seems like the current mayor doesn't sometimes.
+        When former US Education Secretary Arne Duncan and US Rep. Mike Quigley (D-Chicago) declined to run against Mayor Lori Lightfoot, we at the Moon-Times were brave enough to ask the daunting question: Does anyone really want to run this city? Hell, it seems like the current mayor doesn't sometimes.
 
         Is it because they're afraid? Is it because our current mayor bragged about having 'the biggest d*** in Chicago?' Who really knows? Please, don't all try to run at once!
 

@@ -16,9 +16,9 @@ export default function Form() {
 
     if(isTabletOrMobile) {
         formContainer = {
-            width: "70vh",
+            width: "40vh",
             margin: "auto",
-            padding: "10px"
+            padding: "2.5% 0"
         }
     } else {
         formContainer = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import ArticleCard from "../ArticleCard"
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive'
 import articles from '../util/articles'
 
 let dayOfWeek = new Date().toLocaleString('en-us', {  weekday: 'long' });
@@ -26,6 +27,21 @@ function createCard(article) {
 
 const Home = () => {
   articles.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 980px)' });
+  let introStyle = null;
+
+  if(isTabletOrMobile) {
+    introStyle = {
+      fontFamily: "'BentonSans', sans-serif",
+      fontWeight: "normal",
+      fontSize: "2.5rem"
+    }
+  } else {
+    introStyle = {
+      fontFamily: "'BentonSans', sans-serif",
+      fontWeight: "normal"
+    }
+  }
   
   return (
     <div
@@ -43,10 +59,7 @@ const Home = () => {
         display: 'block',
         padding: "1rem"
       }}>
-        <p><i style={{
-          fontFamily: "'BentonSans', sans-serif",
-          fontWeight: "normal"
-        }}>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {dayOfWeek}, {month} {day}, {year}</i></p>
+        <p><i style={introStyle}>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {dayOfWeek}, {month} {day}, {year}</i></p>
         <hr style={{marginTop: "1rem"}} />
 
         <div style={{

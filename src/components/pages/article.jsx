@@ -1,13 +1,27 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive'
 
-function createParagraph(sentences) {
-  return (<div>
-    <p style={{
+function CreateParagraph(sentences) {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  let textStyle = {};
+
+  if(isTabletOrMobile) {
+    textStyle = {
+      fontFamily: "Arial,Helvetica,sans-serif",
+      fontSize: "4rem",
+      fontWeight: "normal",
+      paddingLeft: "30px"
+    };
+  } else {
+    textStyle = {
       fontFamily: "Arial,Helvetica,sans-serif",
       fontSize: "1.75rem",
       fontWeight: "normal"
-    }}>{sentences}</p>
+    };
+  }
+
+  return (<div>
+    <p style={textStyle}>{sentences}</p>
     <br/>
   </div>);
 }
@@ -16,7 +30,7 @@ function parseContent(content, textStyle) {
   let result = content.split("\n");
 
   return (<div style={textStyle}>
-    {result.map(createParagraph)}
+    {result.map(CreateParagraph)}
   </div>);
 } 
 
@@ -31,7 +45,7 @@ function Article(props) {
 
   if(isTabletOrMobile) {
     titleStyle = {
-      fontSize: "2.7rem",
+      fontSize: "4.7rem",
       padding: "0.5rem 0",
       maxHeight: "100%",
       maxWidth: "90%"
@@ -46,7 +60,10 @@ function Article(props) {
       color: "#DDDDDD",
       fontFamily: "'BentonSans', sans-serif",
       fontWeight: "normal",
-      paddingBottom: "2rem"
+      padding: "1rem 0",
+      paddingBottom: "2rem",
+      maxHeight: "100%",
+      fontSize: "3rem"
     };
 
     textStyle = {

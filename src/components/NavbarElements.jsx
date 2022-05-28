@@ -8,6 +8,9 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((80vw - 1000px) / 2);
   z-index: 10;
+  @media screen and (max-width: 1100px) {
+    height: 500px;
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -19,6 +22,9 @@ export const NavLink = styled(Link)`
   padding: 0 0.5rem;
   height: 100%;
   cursor: pointer;
+  @media screen and (max-width: 1100px) {
+    font-size: 5rem;
+  }
 `;
 
 export const NavMenu = styled.div`
@@ -40,6 +46,9 @@ export const NavBtnLink = styled(Link)`
   border-radius: 4px;
   background: #256ce1;
   font-size: 1.5rem;
+  @media screen and (max-width: 1100px) {
+    font-size: 5rem;
+  }
   padding: 10px 22px;
   color: #fff;
   outline: none;

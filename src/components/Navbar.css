@@ -70,11 +70,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 80vh;
+    grid-gap: 130px;
+    height: 70vh;
     position: absolute;
-    padding-bottom: 30px;
+    padding-bottom: 130px;
     align-items: center;
-    top: 110px;
+    top: 495px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
@@ -107,14 +108,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
+    transform: translate(-80%, 190%);
+    font-size: 6rem;
     cursor: pointer;
   }
 
   .fa-times {
     color: #fff;
-    font-size: 2rem;
+    font-size: 6rem;
   }
 
   .nav-links-mobile {

@@ -55,3 +55,14 @@ input {
 .button:disabled {
   cursor: default;
 }
+
+@media screen and (max-width: 1100px) {
+  .form-field {
+    margin: 10px 0 40px 0;
+    font-size: 100px;
+  }
+
+  .success-message {
+    font-size: 50px;
+  }
+}

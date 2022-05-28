@@ -14,7 +14,7 @@ const Subscribe = () => {
       padding: "2.5% 5%",
       paddingBottom: "2%",
       fontFamily: "Arial,Helvetica,sans-serif",
-      fontSize: "1.75rem",
+      fontSize: "4.75rem",
       fontWeight: "normal",
       color: "white"
     };
