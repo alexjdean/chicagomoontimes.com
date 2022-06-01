@@ -39,10 +39,10 @@ export default function Form() {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        let output = addSubscriber(values)
 
-        if(values.firstName && values.lastName && values.email && output !== "registered") {
+        if(values.firstName && values.lastName && values.email) {
             setValid(true);
+            addSubscriber(values)
         }
 
         setSubmitted(true);
