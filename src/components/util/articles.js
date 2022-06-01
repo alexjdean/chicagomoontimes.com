@@ -1,5 +1,58 @@
 const articles = [
     {
+        id: 7,
+        title: "Walter Payton College Prep Student Criminally Charged Over Excessively High Test Scores",
+        date: "05/31/2022",
+        path: "walter-payton-student-test-scores",
+        image: "https://images.unsplash.com/photo-1606326608690-4e0281b1e588?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        content: `
+        Chicago prosecutors on Monday morning filed criminal charges against 17-year old Timmy Vincent, claiming his standardized test scores are out of this world.
+
+        "These test scores are simply too damn high," lead attorney for the case Joseph Foxx told the Moon-Times. "I mean, this kid is out of control. Please, leave some achievement for the rest of us."
+            
+        Vincent, a rising senior at Walter Payton College Prep, scored a perfect 1600 on the SAT, a perfect 36 on the ACT, and perfect AP scores on every AP test in less than an hour. How did he do it?
+            
+        "The kid is a witch or robot or something from Mars," Cook County State's Attorney Kim Maggats told us. "Freaky stuff. If I told him my birthday once, he'd probably remember six months later!"
+        `,
+        spotlight: true
+    },
+    {
+        id: 6,
+        title: "Three Signs Your Local Whole Foods Is Too Boujee",
+        date: "05/28/2022",
+        path: "whole-foods-too-boujee",
+        image: "https://images.unsplash.com/photo-1584771145729-0bd9fda6529b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        content: `
+        Been to a Whole Foods recently? You might've noticed one was so boujee you could've found it in King Louis IV's Palace of Versailles.
+
+        The Chicago Moon-Times has launched an investigation to determine what differentiates these places. What's going on? Here's what our world-class reporters were able to find:
+
+        1. IT REMINDS YOU OF A GAY BAR. Been to a gay bar recently? Notice the similarities? Yeah, we thought so too. 
+
+        2. PEOPLE DON'T WANT LIGHT CONTAMINATING THEIR FOOD. So watch your iPhone flashlight—You don't want a lawsuit accusing you of corrupting someone's groceries.  
+
+        3. YOU CAN'T LEAVE WITHOUT SPENDING 14 BILLION DOLLARS. Also incidentally, how much Amazon paid to buy this thing.
+        `,
+        spotlight: false
+    },
+    {
+        id: 5,
+        title: "Chicago Man Saves Children From Gunman Using Thoughts and Prayers",
+        date: "05/25/2022",
+        path: "man-saves-children-prayers",
+        image: "https://images.unsplash.com/photo-1543525238-54e3d131f7ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        content: `
+        In a confrontation with an armed gunman at Abraham Lincoln Elementary School, Fred Smith can claim to have done the impossible in America: Saving a classroom of children using the power of thoughts and prayers.
+
+        "I still don't how I did it," Smith told us. "I just tried imagining all those people saying that after every mass shooting. And the next thing you know, the gunman disappeared!"
+
+        Smith, a sorcerer by profession, is baffled that his magic can save him from an armed confrontation. Mayor Lori Lightfoot, however, is already capitalizing on the opportunity.
+
+        "We need to make sure that we have a sorcerer in every school," she declared. "It's the only way to keep our city safe."
+        `,
+        spotlight: false
+    },
+    {
         id: 1,
         title: "“We Need More Elementary School Students With Guns,” Declares NRA",
         date: "05/24/2022",
@@ -18,7 +71,7 @@ const articles = [
         
         We at the Moon-Times are not on crack. So we certainly think that's the case.
         `,
-        spotlight: true
+        spotlight: false
     },
     {
         id: 2,

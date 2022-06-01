@@ -8,6 +8,7 @@ import Subscribe from './pages/subscribe'
 import Footer from './Footer'
 import Article from "./pages/article"
 import articles from "./util/articles"
+import ScrollToTop from './ScrollToTop';
 
 function createArticleRoutes(article) {
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -26,6 +27,7 @@ function App() {
     return <div>
     <Router>
         <Navbar />
+        <ScrollToTop/>
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />

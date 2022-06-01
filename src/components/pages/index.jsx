@@ -63,8 +63,8 @@ const Home = () => {
         <hr style={{marginTop: "1rem"}} />
 
         <div style={{
-          alignItems: "center",
-          display: "inline" 
+          display: "flex",
+          flexWrap: "wrap"
         }}>
 
           
