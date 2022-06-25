@@ -1,0 +1,88 @@
+.text-type {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.75rem;
+    font-weight: normal;
+}
+
+.text-padding {
+    padding: 0 22.5rem;
+}
+
+.title-style {
+    font-size: 2.7rem;
+    padding: 0.5rem 0;
+    max-height: 100%;
+    max-width: 50%;
+}
+
+.date-style {
+    color: #DDDDDD;
+    font-family: 'BentonSans', sans-serif;
+    font-weight: normal;
+    padding-bottom: 2rem;
+}
+
+.img-size {
+    max-height: 80%;
+    max-width: 50%;
+}
+
+.page-structs {
+    background: #303030;
+    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    min-height: 85vh;
+    color: #fff;
+    padding: 60px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width: 1224px) {
+    .text-type {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 4rem;
+        font-weight: normal;
+        padding-left: 30px;
+    }
+
+    .title-style {
+        font-size: 4.7rem;
+        padding: 0.5rem 0;
+        max-height: 100%;
+        max-width: 90%;
+    }
+
+    .date-style {
+        color: #DDDDDD;
+        font-family: 'BentonSans', sans-serif;
+        font-weight: normal;
+        padding: 1rem 0;
+        padding-bottom: 2rem;
+        max-height: 100%;
+        font-size: 3rem;
+    }
+
+    .img-size {
+        max-height: 90%;
+        max-width: 90%;
+    }
+
+    .text-padding {
+        padding: 0 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .text-padding {
+        padding: 0 30rem;
+    }
+}
+
+/*
+
+
+@media screen and (max-width: 1224px) {
+
+    
+} */
