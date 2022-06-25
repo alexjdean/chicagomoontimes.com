@@ -1,0 +1,28 @@
+.font-details {
+    font-family: 'BentonSans', sans-serif;
+    font-weight: normal;
+}
+
+.footer {
+    background: #303030;
+    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    color: #fff;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+}
+
+@media screen and (max-width: 980px) {
+    .footer {
+        background: #303030;
+        background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+        color: #fff;
+        text-align: center;
+        font-size: 2.5rem;
+        padding: 3rem 0;
+        bottom: 0;
+        width: 100%;
+        height: 16rem;
+    }
+}

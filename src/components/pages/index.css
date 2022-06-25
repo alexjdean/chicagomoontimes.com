@@ -1,0 +1,32 @@
+.intro {
+    font-family: 'BentonSans', sans-serif;
+    font-weight: normal;
+}
+
+.page-format {
+    background: #303030;
+    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    min-height: 82vh;
+}
+
+.header-format {
+    width: 100%;
+    display: block;
+    padding: 1rem;
+}
+
+.map {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 980px) {
+    .intro {
+        font-family: 'BentonSans', sans-serif;
+        font-weight: normal;
+        font-size: 2.5rem;
+    }
+}
