@@ -1,0 +1,37 @@
+.text {
+    text-align: left;
+    padding: 2.5% 20%;
+    padding-bottom: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.75rem;
+    font-weight: normal;
+}
+
+.page-struct {
+    background: #303030;
+    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    height: 84vh;
+    color: #fff;
+}
+
+@media screen and (max-width: 1224px) {
+    .text {
+        text-align: left;
+        padding: 2.5% 5%;
+        padding-bottom: 2%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 4.75rem;
+        font-weight: normal;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .text {
+        text-align: left;
+        padding: 2.5% 30%;
+        padding-bottom: 0.5%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.75rem;
+        font-weight: normal;
+    }
+}

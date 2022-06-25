@@ -1,23 +1,16 @@
 import React from 'react';
-import ArticleCard from "../ArticleCard"
+import Card from "../Card"
 import { Link } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive'
 import articles from '../util/articles'
-
-let dayOfWeek = new Date().toLocaleString('en-us', {  weekday: 'long' });
-let month = new Date().toLocaleString('default', { month: 'long' });
-let day = new Date().getDate()
-let year = new Date().getFullYear();
+import {formatDate, headerDate} from '../util/helper';
+import './index.css';
 
 function createCard(article) {
-  var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var articleDate = new Date(article.date);
-
   return (<>
       <Link style={{color : "white"}} to={"/" + article.path}>
-        <ArticleCard 
+        <Card 
           title={article.title}
-          date={months[articleDate.getMonth()] + ' ' + articleDate.getDate() + ', ' + articleDate.getFullYear()}
+          date={formatDate(article.date)}
           image={article.image}
           spotlight={article.spotlight}
         />
@@ -27,47 +20,14 @@ function createCard(article) {
 
 const Home = () => {
   articles.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 980px)' });
-  let introStyle = null;
-
-  if(isTabletOrMobile) {
-    introStyle = {
-      fontFamily: "'BentonSans', sans-serif",
-      fontWeight: "normal",
-      fontSize: "2.5rem"
-    }
-  } else {
-    introStyle = {
-      fontFamily: "'BentonSans', sans-serif",
-      fontWeight: "normal"
-    }
-  }
   
   return (
-    <div
-      style={{
-        background: '#303030',
-        backgroundImage: "url('https://www.transparenttextures.com/patterns/mooning.png')",
-        display: 'flex',
-        flexWrap: "wrap",
-        color: '#fff',
-        minHeight: "82vh"
-      }}
-    >
-      <div style={{
-        width: '100%',
-        display: 'block',
-        padding: "1rem"
-      }}>
-        <p><i style={introStyle}>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {dayOfWeek}, {month} {day}, {year}</i></p>
+    <div className='page-format'>
+      <div className='header-format'>
+        <p><i className='intro'>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {headerDate()}</i></p>
         <hr style={{marginTop: "1rem"}} />
-
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap"
-        }}>
-
-          
+        
+        <div className='map'>
           {articles.map(createCard)}
         </div>
       </div>
