@@ -18,9 +18,11 @@ function parseContent(content) {
 
 function Article(props) {
   return (
-    <div className='page-structs'>
+      <div className='page-structs'>
+        <div className='words'>
         <h2 className='title-style'>{props.title}</h2>
         <h3 className='date-style'>{props.date}</h3> 
+        </div>
         <img className='img-size' src={props.image} alt="article_image"/>
         <br/>
         {parseContent(props.content)}

@@ -20,31 +20,39 @@ function createCard(article) {
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
+  
+  useEffect(() => {
+    async function fetchArticles() {
+        const articleList = await getArticles();
+        setArticles(articleList);
+    }
+    
+    fetchArticles();
+  }, []);
 
-    useEffect(() => {
-        async function fetchArticles() {
-            const articleList = await getArticles();
-            setArticles(articleList);
-        }
-
-        fetchArticles();
-    }, []);
-
-  articles.sort(function(x, y){ return x.spotlight === true ? -1 : y.spotlight === true ? 1 : 0;});
+  articles.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+  
+    return dateB - dateA;
+  });
   
   return (
     <div className='page-format'>
       <div className='header-format'>
         <div className='preamble-container'>
-          <p className='preamble'>The Hardest-Working AI Paper in America</p>
+          <p className='preamble'>The Hardest-Working A.I. Paper in America</p>
           <p>{headerDate()}</p>
           <hr style={{marginTop: "1rem"}} />
         </div>
-        
-        <div className='map'>
-          {articles.map(createCard)}
-        </div>
       </div>
+        <div className='spotlight-map'>
+          {articles.slice(0, 1).map(createCard)}
+        </div>
+
+        <div className='map'>
+          {articles.slice(1).map(createCard)}
+        </div>
     </div>
   );
 };

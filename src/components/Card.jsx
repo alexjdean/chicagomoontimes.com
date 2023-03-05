@@ -4,21 +4,20 @@ import './Card.css';
 
 function Card(props) {
     let pageClass = null;
-    let titleClass = null;
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 990px)' });
 
     if(props.spotlight === true && !isTabletOrMobile) {
-        pageClass = "page-spotlight";
-        titleClass = "article-title title-spotlight";
+        pageClass = "card-spotlight";
     } else {
-        pageClass = "page"
-        titleClass = "article-title title";
+        pageClass = "card"
     }
 
     return (<div className={pageClass}>
-        <img className="img" src={props.image} alt="article_image"/>
-        <h1 className={titleClass}>{props.title}</h1>
-        <p className="date">{props.date}</p>        
+        <img src={props.image} alt="article_image"/>
+        <div className="card-content">
+            <h1 className="card-title">{props.title}</h1>
+            <p className="date">{props.date}</p> 
+        </div>
     </div>);
 }
 

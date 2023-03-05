@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 .text-type {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Varela Round', sans-serif;
     font-size: 1.75rem;
-    font-weight: normal;
 }
 
 .text-padding {
@@ -9,27 +11,28 @@
 }
 
 .title-style {
+    font-family: 'Secular One', sans-serif;
     font-size: 2.7rem;
     padding: 0.5rem 0;
-    max-height: 100%;
-    max-width: 50%;
 }
 
 .date-style {
     color: #DDDDDD;
-    font-family: 'BentonSans', sans-serif;
-    font-weight: normal;
+    font-family: 'Varela Round', sans-serif;
     padding-bottom: 2rem;
 }
 
+.words {
+    width: 50%;
+}
+
 .img-size {
-    max-height: 80%;
+    max-height: 50%;
     max-width: 50%;
 }
 
 .page-structs {
-    background: #303030;
-    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    background: hsl(216, 12%, 32%);
     min-height: 85vh;
     color: #fff;
     padding: 60px 15px;
@@ -78,11 +81,3 @@
         padding: 0 30rem;
     }
 }
-
-/*
-
-
-@media screen and (max-width: 1224px) {
-
-    
-} */
