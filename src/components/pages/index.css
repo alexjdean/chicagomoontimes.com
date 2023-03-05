@@ -4,7 +4,7 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 1.2rem;
     display: flex;
-    justify-content: centers;
+    justify-content: center;
     align-items: center;
 }
 
@@ -15,17 +15,34 @@
 .page-format {
     background: hsl(216, 12%, 32%);
     color: white;
-    min-height: 82vh;
+    min-height: 85vh;
 }
 
 .header-format {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 1rem;
 }
 
+.spotlight-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    margin: 1rem;
+}
+
 .map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+    padding: 20px 60px;
 }
 
 @media screen and (max-width: 980px) {

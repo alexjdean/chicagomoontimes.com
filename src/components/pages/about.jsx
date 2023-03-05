@@ -4,8 +4,8 @@ import './nonmain.css';
 const About = () => {
   return (
     <div className='page-struct'>
-      <p className='text'>You've heard of the Chicago Sun-Times. But after sunset, that's when we come in. The Chicago Moon-Times is the premier news source for the Chicagoland area for all events that happen AFTER dark. We know what's up.</p>
-      <p className='text'>In all seriousness, the Chicago Moon-Times was created in April 2022 by a bored computer programmer on a Saturday night. Everything on the site is satire. Please don't sue me!</p>
+      <p className='text'>The Chicago Moon-Times is the first, fully-automated satirical news site created to spread laughter and joy in the world. The site is powered by OpenAI’s ChatGPT and all content is satirical and not meant to be taken seriously. </p>
+      <p className='text'>Topics focus on both local and national issues and all articles generated after January 2023 were written by artificial intelligence. This site was first created in April 2022 by a bored <a href='https://alexanderjdean.com'>Alex Dean</a>  on a Saturday night. </p>
     </div>
   );
 };

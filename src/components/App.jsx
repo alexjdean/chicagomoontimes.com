@@ -3,7 +3,7 @@ import Navbar from "./Navbar"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages';
 import About from './pages/about';
-import Donate from './pages/donate'
+import Contact from './pages/contact'
 import Footer from './Footer'
 import Article from "./pages/article"
 import getArticles from './util/firebase';
@@ -39,7 +39,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
-            <Route path='/donate' element={<Donate />} />
+            <Route path='/donate' element={<Contact />} />
             {articles.map(createArticleRoutes)}
         </Routes>
         <Footer />

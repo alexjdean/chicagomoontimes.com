@@ -1,11 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 .font-details {
-    font-family: 'BentonSans', sans-serif;
-    font-weight: normal;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .footer {
-    background: #303030;
-    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    background: hsl(216, 12%, 32%);
     color: #fff;
     text-align: center;
     bottom: 0;
@@ -15,8 +15,6 @@
 
 @media screen and (max-width: 980px) {
     .footer {
-        background: #303030;
-        background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
         color: #fff;
         text-align: center;
         font-size: 2.5rem;

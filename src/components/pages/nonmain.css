@@ -1,17 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 .text {
     text-align: left;
-    padding: 2.5% 20%;
+    padding: 2.5% 10%;
     padding-bottom: 1%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Varela Round', sans-serif;
     font-size: 1.75rem;
-    font-weight: normal;
 }
 
 .page-struct {
-    background: #303030;
-    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
+    background: hsl(216, 12%, 32%);
     height: 84vh;
     color: #fff;
+}
+
+a {
+    color: #5ebeff;
+    font-family: 'Varela Round', sans-serif;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #2077b1;
 }
 
 @media screen and (max-width: 1224px) {
@@ -19,19 +29,17 @@
         text-align: left;
         padding: 2.5% 5%;
         padding-bottom: 2%;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Varela Round', sans-serif;
         font-size: 4.75rem;
-        font-weight: normal;
     }
 }
 
 @media screen and (min-width: 1500px) {
     .text {
         text-align: left;
-        padding: 2.5% 30%;
+        padding: 2.5% 15%;
         padding-bottom: 0.5%;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 1.75rem;
-        font-weight: normal;
+        font-family: 'Varela Round', sans-serif;
+        font-size: 2rem;
     }
 }

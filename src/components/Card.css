@@ -1,43 +1,55 @@
-.page {
-    padding: 20px 15px;
-    margin: 10px 25px;
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.card {
+    background-color: hsl(216, 20%, 31%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-width: 35vh;
-    float: left;
 }
 
-.page-spotlight {
-    padding: 20px 15px;
-    margin: 10px 25px;
+.card-spotlight {
+    background-color: hsl(216, 20%, 31%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-width: 80vh;
-    float: left;
 }
 
-.img {
-    max-height: 100%;
-    max-width: 100%;
+.card-spotlight img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
 }
 
-.title {
-    font-size: 1.25rem;
-    padding: 0.5rem 0;
-    max-height: 100%;
-    max-width: 100%;
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
-.title-spotlight {
-    font-size: 1.75rem;
-    padding: 0.5rem 0;
-    max-height: 100%;
-    max-width: 100%;
+.card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+    text-align: left;
+    font-family: 'Secular One', sans-serif;
 }
 
 .date {
-    color: white;
-    font-weight: normal;
+    font-family: 'Varela Round', sans-serif;
 }
 
 @media screen and (max-width: 990px) {
