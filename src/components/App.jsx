@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "./Navbar"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages';
@@ -6,12 +6,12 @@ import About from './pages/about';
 import Donate from './pages/donate'
 import Footer from './Footer'
 import Article from "./pages/article"
-import articles from "./util/articles"
+import getArticles from './util/firebase';
 import ScrollToTop from './ScrollToTop';
 import { formatDate } from './util/helper';
 
 function createArticleRoutes(article) {
-    return (<Route path={"/" + article.path}
+    return (<Route path={article.path}
         element={<Article
             title={article.title}
             date={formatDate(article.date)}
@@ -21,6 +21,17 @@ function createArticleRoutes(article) {
 }
 
 function App() {
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+        async function fetchArticles() {
+            const articleList = await getArticles();
+            setArticles(articleList);
+        }
+
+        fetchArticles();
+    }, []);
+
     return <div>
     <Router>
         <Navbar />
