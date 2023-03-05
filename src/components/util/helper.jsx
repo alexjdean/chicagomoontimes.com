@@ -1,4 +1,5 @@
 import React from 'react';
+import './../pages/index.css';
 
 export function formatDate(date) {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -13,7 +14,5 @@ export function headerDate() {
     let day = new Date().getDate()
     let year = new Date().getFullYear();
 
-    return (<><i style={{fontWeight: "normal"}}>
-        {dayOfWeek}, {month} {day}, {year}
-    </i></>);
+    return <p className='preamble'>Today is {dayOfWeek}, {month} {day}, {year} 😊</p>;
 };
