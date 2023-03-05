@@ -14,7 +14,7 @@ function Navbar() {
     <>
       <Nav className='navbar'>
         <NavLink className="navHover" to='/' onClick={closeMobileMenu}>
-          <h1 className='header'>CHICAGO MOON <img className='logo-width' src={require('../images/logo.png')} alt='logo' /> TIMES</h1>
+          <h1 className='header'>CHICAGO MOON<img className='logo-width' src={require('../images/logo.png')} alt='logo' />TIMES</h1>
         </NavLink>
         <div className='menu-icon' onClick={handleClick}>
           <i style={{
@@ -29,7 +29,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <NavLink className="navHover nav-links" onClick={closeMobileMenu} style={{ marginRight: 20 }} to='/donate' activeStyle>
-              Donate
+              Contact
             </NavLink>
           </li>
         </ul>
