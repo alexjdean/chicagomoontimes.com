@@ -1,31 +1,35 @@
-.intro {
-    font-family: 'BentonSans', sans-serif;
-    font-weight: normal;
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.preamble {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: centers;
+    align-items: center;
+}
+
+.preamble-container {
+    padding: 0.25rem;
 }
 
 .page-format {
-    background: #303030;
-    background-image: url('https://www.transparenttextures.com/patterns/mooning.png');
-    display: flex;
-    flex-wrap: wrap;
-    color: #fff;
+    background: hsl(216, 12%, 32%);
+    color: white;
     min-height: 82vh;
 }
 
 .header-format {
-    width: 100%;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 1rem;
 }
 
 .map {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 @media screen and (max-width: 980px) {
     .intro {
-        font-family: 'BentonSans', sans-serif;
         font-weight: normal;
         font-size: 2.5rem;
     }

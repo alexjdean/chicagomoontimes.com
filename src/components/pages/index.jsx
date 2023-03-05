@@ -35,8 +35,11 @@ const Home = () => {
   return (
     <div className='page-format'>
       <div className='header-format'>
-        <p><i className='intro'>The Hardest-Working Paper in America (⭐ After Dark! ⭐) | {headerDate()}</i></p>
-        <hr style={{marginTop: "1rem"}} />
+        <div className='preamble-container'>
+          <p className='preamble'>The Hardest-Working AI Paper in America</p>
+          <p>{headerDate()}</p>
+          <hr style={{marginTop: "1rem"}} />
+        </div>
         
         <div className='map'>
           {articles.map(createCard)}

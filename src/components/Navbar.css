@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
 .navbar {
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   height: 80px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.2rem;
 }
 
@@ -24,24 +23,22 @@
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 30vw;
   justify-content: end;
-  margin-right: 2rem;
+  font-family: 'Secular One', sans-serif;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  height: 80px;
 }
 
 .nav-links {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
+  font-family: 'Secular One', sans-serif;
 }
 
 .fa-bars {
@@ -58,10 +55,11 @@
 
 .header {
   font-size: 2.5rem;
+  font-family: 'Secular One', sans-serif;
 }
 
 .logo-width {
-  width: 30px;
+  width: 25px;
 }
 
 @media screen and (max-width: 980px) {
