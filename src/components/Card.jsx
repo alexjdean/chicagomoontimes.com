@@ -4,7 +4,7 @@ import './Card.css';
 
 function Card(props) {
     let pageClass = null;
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 990px)' });
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1100px)' });
 
     if(props.spotlight === true && !isTabletOrMobile) {
         pageClass = "card-spotlight";
