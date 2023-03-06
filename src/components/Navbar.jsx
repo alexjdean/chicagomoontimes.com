@@ -28,7 +28,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li className='nav-item'>
-            <NavLink className="navHover nav-links" onClick={closeMobileMenu} style={{ marginRight: 20 }} to='/donate' activeStyle>
+            <NavLink className="navHover nav-links" onClick={closeMobileMenu} style={{ marginRight: 20 }} to='/contact' activeStyle>
               Contact
             </NavLink>
           </li>

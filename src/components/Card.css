@@ -53,13 +53,10 @@
 }
 
 @media screen and (max-width: 990px) {
-    .page {
-        padding: 20px 15px;
-        margin: 10px 25px;
-        display: flex;
-        flex-direction: column;
-        max-width: 80vh;
-        float: left;
+    .card {
+        background-color: hsl(216, 20%, 31%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: auto;
     }
 
     .title {
@@ -67,12 +64,5 @@
         padding: 0.5rem 0;
         max-height: 100%;
         max-width: 100%;
-    }
-
-    .date {
-        color: "#DDDDDD";
-        font-family: 'BentonSans', sans-serif;
-        font-weight: normal;
-        font-size: 2.5rem;
     }
 }

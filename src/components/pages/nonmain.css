@@ -10,7 +10,7 @@
 
 .page-struct {
     background: hsl(216, 12%, 32%);
-    height: 84vh;
+    height: 104vh;
     color: #fff;
 }
 
@@ -27,19 +27,9 @@ a:hover {
 @media screen and (max-width: 1224px) {
     .text {
         text-align: left;
-        padding: 2.5% 5%;
+        padding: 10% 10%;
         padding-bottom: 2%;
         font-family: 'Varela Round', sans-serif;
-        font-size: 4.75rem;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    .text {
-        text-align: left;
-        padding: 2.5% 15%;
-        padding-bottom: 0.5%;
-        font-family: 'Varela Round', sans-serif;
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 }

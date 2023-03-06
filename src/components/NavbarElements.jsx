@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   padding: 0.5rem calc((80vw - 1425px) / 2);
   z-index: 10;
   @media screen and (max-width: 1100px) {
-    height: 500px;
+    height: 230px;
   }
 
   @media screen and (max-width: 1450px) {
@@ -27,7 +27,7 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   @media screen and (max-width: 1100px) {
-    font-size: 5rem;
+    font-size: 2rem;
   }
 `;
 
