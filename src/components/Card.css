@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
 .card {
     background-color: hsl(216, 20%, 31%);
@@ -49,7 +49,7 @@
 }
 
 .date {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 @media screen and (max-width: 990px) {

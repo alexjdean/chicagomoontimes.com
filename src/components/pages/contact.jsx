@@ -1,12 +1,11 @@
 import React from 'react';
 import './nonmain.css';
-import ContactForm from './form';
 
 const Contact = () => {
   return (
     <div className='page-struct'>
-      <p className='text'>Have any thoughts or suggestions? You can contact the Chicago Moon-Times using the form below.</p>
-      <ContactForm />
+      <p className='text'>Have any thoughts or suggestions you'd like us to know about?</p>
+      <p className='text'>You can contact the Chicago Moon-Times by sending an email to moontimeletters at gmail dot com.</p>
     </div>
   );
 };
