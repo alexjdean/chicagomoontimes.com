@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 .preamble {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Varela Round', sans-serif;
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
