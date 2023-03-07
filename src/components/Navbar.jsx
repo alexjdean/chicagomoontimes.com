@@ -27,11 +27,11 @@ function Navbar() {
               About
             </NavLink>
           </li>
-          <li className='nav-item'>
+          {/* <li className='nav-item'>
             <NavLink className="navHover nav-links" onClick={closeMobileMenu} style={{ marginRight: 20 }} to='/contact' activeStyle>
               Contact
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </Nav>
     </>
