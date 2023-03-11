@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.unusedImports": false,
+        "source.fixAll.convertImportFormat": false,
+        "source.organizeImports": true
+    }
+}
