@@ -3,3 +3,5 @@ google-cloud-sdk/
 build/
 config/
 server/config/
+.firebase/
+firebase-debug.log
