@@ -1,7 +1,9 @@
 import React from 'react';
 import './nonmain.css';
+import ReactGA from 'react-ga';
 
 const About = () => {
+  ReactGA.pageview('/about');
   return (
     <div className='page-struct'>
       <p className='text'>The Chicago Moon-Times is the first, fully-automated satirical news site created to spread laughter and joy in the world. The site is powered by OpenAI’s ChatGPT and all content is satirical and not meant to be taken seriously. </p>

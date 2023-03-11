@@ -6,9 +6,9 @@ import About from './pages/about';
 // import Contact from './pages/contact'
 import Footer from './Footer'
 import Article from "./pages/article"
-import { getArticles } from './util/firebase';
 import ScrollToTop from './ScrollToTop';
 import { formatDate } from './util/helper';
+import ReactGA from 'react-ga';
 
 function createArticleRoutes(article) {
     return (<Route path={article.path}
@@ -17,16 +17,21 @@ function createArticleRoutes(article) {
             date={formatDate(article.date)}
             image={article.image}
             content={article.content}
+            path={article.path}
         />}/>);
 }
 
 function App() {
+    ReactGA.initialize('G-4XQX4Z413N');
+    ReactGA.pageview('/');  
+    
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
         async function fetchArticles() {
-            const articleList = await getArticles();
-            setArticles(articleList);
+            const articleList = await fetch('https://chicagomoontimes.com/articles/');
+            const data = await articleList.json();
+            setArticles(data);
         }
 
         fetchArticles();
@@ -37,7 +42,7 @@ function App() {
         <Navbar />
         <ScrollToTop />
         <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home articles={articles} />} />
             <Route path='/about' element={<About />} />
             {/* <Route path='/contact' element={<Contact />} /> */}
             {articles.map(createArticleRoutes)}

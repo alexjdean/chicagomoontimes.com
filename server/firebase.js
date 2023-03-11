@@ -2,15 +2,27 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import config from 'config';
 
 async function initFirebase() {
-  const response = await fetch('https://chicagomoontimes.com/firebase/');
-  const firebaseConfig = await response.json();
+  const firebaseConfig = {
+        apiKey: config.get("Firebase.API_KEY"),
+        authDomain: config.get("Firebase.AUTH_DOMAIN"),
+        databaseURL: config.get("Firebase.DATABASE_URL"),
+        projectId: config.get("Firebase.PROJECT_ID"),
+        storageBucket: config.get("Firebase.STORAGE_BUCKET"),
+        messagingSenderId: config.get("Firebase.MESSAGING_SENDER_ID"),
+        appId: config.get("Firebase.APP_ID"),
+        measurementId: config.get("Firebase.MEASUREMENT_ID")
+  };
+
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  const authResponse = await fetch('https://chicagomoontimes.com/firebase/auth/');
-  const loginInfo = await authResponse.json();
+  const loginInfo = {
+    email: config.get("Firebase.EMAIL"),
+    password: config.get("Firebase.PASSWORD")
+};
   
 
   return new Promise((resolve, reject) => {

@@ -5,3 +5,4 @@ config/
 server/config/
 .firebase/
 firebase-debug.log
+infrastructure/

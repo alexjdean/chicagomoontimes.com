@@ -1,5 +1,6 @@
 import React from 'react';
 import "./article.css"
+import ReactGA from 'react-ga';
 
 function CreateParagraph(sentences) {
   return (<div>
@@ -21,6 +22,8 @@ function parseContent(content) {
 } 
 
 function Article(props) {
+  ReactGA.pageview('/' + props.path);
+
   return (
       <div className='page-structs'>
         <div className='words'>

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from "../Card"
 import { Link } from 'react-router-dom';
-import getArticles from '../util/firebase'
 import {formatDate, headerDate} from '../util/helper';
 import './index.css';
 
@@ -18,24 +17,8 @@ function createCard(article) {
   </>);
 }
 
-const Home = () => {
-  const [articles, setArticles] = useState([]);
-  
-  useEffect(() => {
-    async function fetchArticles() {
-        const articleList = await getArticles();
-        setArticles(articleList);
-    }
-    
-    fetchArticles();
-  }, []);
-
-  articles.sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-  
-    return dateB - dateA;
-  });
+const Home = ({ articles }) => {
+  const sortedArticles = articles.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
   
   return (
     <div className='page-format'>
@@ -47,11 +30,11 @@ const Home = () => {
         </div>
       </div>
         <div className='spotlight-map'>
-          {articles.slice(0, 1).map(createCard)}
+          {sortedArticles.slice(0, 1).map(createCard)}
         </div>
 
         <div className='map'>
-          {articles.slice(1).map(createCard)}
+          {sortedArticles.slice(1).map(createCard)}
         </div>
     </div>
   );

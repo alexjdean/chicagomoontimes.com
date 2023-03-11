@@ -1,20 +1,29 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import config from 'config';
 
-const NATIONAL = "news";
+const NATIONAL = "usnews";
 const CHICAGO = "illinois";
 const ONION = "theonion";
 
 export async function initFirebase() {
   const firebaseConfig = {
-            
+    apiKey: config.get("Firebase.API_KEY"),
+    authDomain: config.get("Firebase.AUTH_DOMAIN"),
+    databaseURL: config.get("Firebase.DATABASE_URL"),
+    projectId: config.get("Firebase.PROJECT_ID"),
+    storageBucket: config.get("Firebase.STORAGE_BUCKET"),
+    messagingSenderId: config.get("Firebase.MESSAGING_SENDER_ID"),
+    appId: config.get("Firebase.APP_ID"),
+    measurementId: config.get("Firebase.MEASUREMENT_ID")
         };
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
   const loginInfo = {
-    
+    email: config.get("Firebase.EMAIL"),
+    password: config.get("Firebase.PASSWORD")
   };
   
   return new Promise((resolve, reject) => {
@@ -117,7 +126,7 @@ async function queryGPT(query) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer "
+      "Authorization": "Bearer " + config.get("OpenAI.API_KEY")
     },
     body: JSON.stringify({
       "model": "gpt-3.5-turbo",
@@ -173,7 +182,7 @@ async function generateArticle() {
     console.log(nationalObj);
     console.log(typeof(nationalObj));
 
-    const nationalImage = await getUnsplashImage(nationalObj.keyword, "");
+    const nationalImage = await getUnsplashImage(nationalObj.keyword, config.get("Unsplash.API_KEY"));
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!

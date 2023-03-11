@@ -1,12 +1,12 @@
 import express from 'express';
 import path from 'path';
-import generateArticleBones from './generator.js';
-import config from 'config';
+import helmet from 'helmet';
+import getArticles from './firebase.js';
 
 const app = express();
 const __dirname = path.resolve(path.dirname('')); 
 
-app.use(express.static(path.join(__dirname,"/build")));
+app.use(express.static(path.join(__dirname, "/build")));
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://chicagomoontimes.com");
@@ -14,33 +14,23 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/firebase', (req, res) => {
-    const credentials = {
-        apiKey: config.get("Firebase.API_KEY"),
-        authDomain: config.get("Firebase.AUTH_DOMAIN"),
-        databaseURL: config.get("Firebase.DATABASE_URL"),
-        projectId: config.get("Firebase.PROJECT_ID"),
-        storageBucket: config.get("Firebase.STORAGE_BUCKET"),
-        messagingSenderId: config.get("Firebase.MESSAGING_SENDER_ID"),
-        appId: config.get("Firebase.APP_ID"),
-        measurementId: config.get("Firebase.MEASUREMENT_ID")
-    }
+app.use(helmet());
 
-    res.send(credentials);
+app.get('/', (req, res) => {
+  if (!req.secure) {
+      res.redirect(301, "https://" + req.headers.host + req.originalUrl);
+  }
+  res.status(200).send("hello, world\n").end();
 });
 
-app.get('/firebase/auth', (req, res) => {
-    const auth = {
-        email: config.get("Firebase.EMAIL"),
-        password: config.get("Firebase.PASSWORD")
-    }
-
-    res.send(auth);
+app.get('/articles', async (req, res) => {
+  const articles = await getArticles();
+  res.send(articles);
 });
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+});
   
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
