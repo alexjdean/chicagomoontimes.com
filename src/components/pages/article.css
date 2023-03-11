@@ -7,7 +7,7 @@
 }
 
 .text-padding {
-    padding: 0 22.25rem;
+    padding: 0 22.5rem;
 }
 
 .title-style {
@@ -64,5 +64,11 @@
 
     .text-padding {
         padding: 0 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .text-padding {
+        padding: 0 30rem;
     }
 }

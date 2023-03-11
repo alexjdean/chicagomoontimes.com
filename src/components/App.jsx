@@ -6,7 +6,7 @@ import About from './pages/about';
 // import Contact from './pages/contact'
 import Footer from './Footer'
 import Article from "./pages/article"
-import getArticles from './util/firebase';
+import { getArticles } from './util/firebase';
 import ScrollToTop from './ScrollToTop';
 import { formatDate } from './util/helper';
 

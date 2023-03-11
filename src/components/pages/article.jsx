@@ -5,15 +5,19 @@ function CreateParagraph(sentences) {
   return (<div>
     <p className='text-type'>{sentences}</p>
     <br/>
+    <br/>
   </div>);
 }
 
 function parseContent(content) {
-  let result = content.split("\n");
+  const modifiedContent = content.replace('\n', "1234");
+  let result = modifiedContent.split("1234");
   
-  return (<div className='text-padding'>
-    {result.map(CreateParagraph)}
-  </div>);
+  return (
+    <div className='text-padding'>
+      {result.map(CreateParagraph)}
+    </div>
+  );
 } 
 
 function Article(props) {
