@@ -1,74 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 .text-type {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1.75rem;
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.75rem;
 }
 
 .text-padding {
-    padding: 0 22.5rem;
+  padding: 0 22.5rem;
 }
 
 .title-style {
-    font-family: 'Secular One', sans-serif;
-    font-size: 2.7rem;
-    padding: 0.5rem 0;
+  font-family: "Secular One", sans-serif;
+  font-size: 2.7rem;
+  padding: 0.5rem 0;
 }
 
 .date-style {
-    color: #DDDDDD;
-    font-family: 'Varela Round', sans-serif;
-    padding-bottom: 2rem;
+  color: #dddddd;
+  font-family: "Varela Round", sans-serif;
+  padding-bottom: 2rem;
 }
 
 .words {
-    width: 50%;
+  width: 50%;
 }
 
 .img-size {
-    max-height: 50%;
-    max-width: 50%;
+  max-height: 50%;
+  max-width: 50%;
 }
 
 .page-structs {
-    background: hsl(216, 12%, 32%);
-    min-height: 85vh;
-    color: #fff;
-    padding: 30px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: hsl(216, 12%, 32%);
+  min-height: 85vh;
+  color: #fff;
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 1224px) {
-    .words {
-        width: 100%;
-    }
+  .words {
+    width: 100%;
+  }
 
-    .title-style {
-        font-size: 2.2rem;
-        padding: 0rem 1rem;
-        padding-bottom: 5px;
-    }
+  .title-style {
+    font-size: 2.2rem;
+    padding: 0rem 1rem;
+    padding-bottom: 5px;
+  }
 
-    .date-style {
-        padding: 0rem 1.2rem;
-        padding-bottom: 15px;
-    }
+  .date-style {
+    padding: 0rem 1.2rem;
+    padding-bottom: 15px;
+  }
 
-    .img-size {
-        max-height: 90%;
-        max-width: 90%;
-    }
+  .img-size {
+    max-height: 90%;
+    max-width: 90%;
+  }
 
-    .text-padding {
-        padding: 0 1.5rem;
-    }
+  .text-padding {
+    padding: 0 1.5rem;
+  }
 }
 
 @media screen and (min-width: 1500px) {
-    .text-padding {
-        padding: 0 30rem;
-    }
+  .text-padding {
+    padding: 0 30rem;
+  }
 }

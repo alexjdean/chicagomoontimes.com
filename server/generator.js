@@ -1,6 +1,6 @@
-import getSubredditPostTitles from './aggregator.js';
-import createQuery from './query.js';
-import config from 'config';
+import getSubredditPostTitles from "./aggregator.js";
+import createQuery from "./query.js";
+import config from "config";
 
 const NATIONAL = "worldnews";
 const CHICAGO = "illinois";
@@ -11,14 +11,14 @@ async function queryGPT(query) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + config.get('OpenAI.API_KEY')
+      Authorization: "Bearer " + config.get("OpenAI.API_KEY"),
     },
     body: JSON.stringify({
-      "model": "gpt-3.5-turbo",
-      "messages": [{"role": "user", "content": query}]
-    })
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: query }],
+    }),
   });
-  
+
   const data = await response.json();
   console.log(data.choices[0].message.content);
   const jsonString = JSON.stringify(data.choices[0].message.content);
@@ -28,27 +28,27 @@ async function queryGPT(query) {
 
 async function generateArticleBones() {
   return getSubredditPostTitles(NATIONAL)
-    .then(nationalHeadlines => {
-      return getSubredditPostTitles(CHICAGO)
-        .then(chicagoHeadlines => {
-          return getSubredditPostTitles(ONION)
-            .then(onionHeadlines => {
-              const query = createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines);
+    .then((nationalHeadlines) => {
+      return getSubredditPostTitles(CHICAGO).then((chicagoHeadlines) => {
+        return getSubredditPostTitles(ONION).then((onionHeadlines) => {
+          const query = createQuery(
+            nationalHeadlines,
+            chicagoHeadlines,
+            onionHeadlines
+          );
 
-              return queryGPT(query.nQuery)
-                .then(nationalArticleBones => {
-                  return queryGPT(query.cQuery)
-                    .then(chicagoArticleBones => {
-                      return {
-                        national: nationalArticleBones,
-                        chicago: chicagoArticleBones
-                      };
-                    });
-                });
+          return queryGPT(query.nQuery).then((nationalArticleBones) => {
+            return queryGPT(query.cQuery).then((chicagoArticleBones) => {
+              return {
+                national: nationalArticleBones,
+                chicago: chicagoArticleBones,
+              };
             });
+          });
         });
+      });
     })
-    .catch(error => {
+    .catch((error) => {
       throw new Error("Unable to generate article bones - " + error.message);
     });
 }

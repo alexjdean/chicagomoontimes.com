@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import {
-    Nav,
-    NavLink,
-  } from './NavbarElements';
-import './Navbar.css';
-  
+import React, { useState } from "react";
+import { Nav, NavLink } from "./NavbarElements";
+import "./Navbar.css";
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -12,18 +9,35 @@ function Navbar() {
 
   return (
     <>
-      <Nav className='navbar'>
-        <NavLink className="navHover" to='/' onClick={closeMobileMenu}>
-          <h1 className='header'>CHICAGO MOON<img className='logo-width' src={require('../images/logo.png')} alt='logo' />TIMES</h1>
+      <Nav className="navbar">
+        <NavLink className="navHover" to="/" onClick={closeMobileMenu}>
+          <h1 className="header">
+            CHICAGO MOON
+            <img
+              className="logo-width"
+              src={require("../images/logo.png")}
+              alt="logo"
+            />
+            TIMES
+          </h1>
         </NavLink>
-        <div className='menu-icon' onClick={handleClick}>
-          <i style={{
-            color:"white"
-          }} className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        <div className="menu-icon" onClick={handleClick}>
+          <i
+            style={{
+              color: "white",
+            }}
+            className={click ? "fas fa-times" : "fas fa-bars"}
+          />
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <NavLink className="navHover nav-links" onClick={closeMobileMenu} style={{ marginRight: 20 }} to='/about' activeStyle>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <NavLink
+              className="navHover nav-links"
+              onClick={closeMobileMenu}
+              style={{ marginRight: 20 }}
+              to="/about"
+              activeStyle
+            >
               About
             </NavLink>
           </li>
@@ -36,6 +50,6 @@ function Navbar() {
       </Nav>
     </>
   );
-};
-  
+}
+
 export default Navbar;

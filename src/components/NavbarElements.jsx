@@ -1,8 +1,8 @@
-import { NavLink as Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { NavLink as Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: #041C32;
+  background: #041c32;
   height: 110px;
   display: flex;
   justify-content: space-between;

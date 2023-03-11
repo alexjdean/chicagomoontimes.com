@@ -7,16 +7,12 @@ const CHICAGO = "illinois";
 const ONION = "theonion";
 
 export async function initFirebase() {
-  const firebaseConfig = {
-            
-        };
+  const firebaseConfig = {};
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  const loginInfo = {
-    
-  };
-  
+  const loginInfo = {};
+
   return new Promise((resolve, reject) => {
     signInWithEmailAndPassword(auth, loginInfo.email, loginInfo.password)
       .then((userCredential) => {
@@ -30,14 +26,14 @@ export async function initFirebase() {
 }
 
 function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
-    const nationalQuery = `
+  const nationalQuery = `
         Write me ONE hilarious Onion-style satirical headline and article based on the following recent headlines:
         
-        ${nationalHeadlines.concat(chicagoHeadlines).join('\n')}
+        ${nationalHeadlines.concat(chicagoHeadlines).join("\n")}
 
         The headlines should be similar to headlines from The Onion. To help you out, here are some examples of headlines from The Onion:
         
-        ${onionHeadlines.join('\n')}
+        ${onionHeadlines.join("\n")}
 
         Make the headline AND the article as funny as possible. The article should be 3 short paragraphs in length and each paragraph should be separated by the code 1234.
         
@@ -57,20 +53,20 @@ function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
         }
 
         As a reminder, I only want one extremely funny headline, an article 3 paragraphs in length, and its URL path. Do NOT answer with anything besides the JavaScript object I requested.
-    `
+    `;
 
-    const chicagoQuery = `
+  const chicagoQuery = `
         Write me ONE hilarious Onion-style satirical headline and article, based on the following recent headlines:
 
-        ${nationalHeadlines.join('\n')}
+        ${nationalHeadlines.join("\n")}
 
         I want the headline and article to be focused on Chicago, in some way. You can use any detail about the city's history, culture, or current events. To help you out, here are some recent headlines from Chicago news:
         
-        ${chicagoHeadlines.join('\n')}
+        ${chicagoHeadlines.join("\n")}
 
         The headlines should be similar to headlines from The Onion. To help you out, here are some examples of headlines from The Onion:
         
-        ${onionHeadlines.join('\n')}
+        ${onionHeadlines.join("\n")}
     
         Make the headline AND the article as funny as possible. The article should be 3 short paragraphs in length and each paragraph should be separated by the code 1234.
         
@@ -90,26 +86,25 @@ function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
         }
 
         As a reminder, I only want one extremely funny headline, an article 3 paragraphs in length, and its URL path. Do not answer with anything besides the JavaScript object I requested.
-    `
+    `;
 
-    return {
-        nQuery: nationalQuery,
-        cQuery: chicagoQuery
-    };
+  return {
+    nQuery: nationalQuery,
+    cQuery: chicagoQuery,
+  };
 }
 
-
 function getSubredditPostTitles(subreddit) {
-    const url = `https://www.reddit.com/r/${subreddit}/hot.json`;
-  
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const posts = data.data.children;
-        const titles = posts.map(post => post.data.title);
-        return titles;
-      })
-      .catch(error => console.error(error));
+  const url = `https://www.reddit.com/r/${subreddit}/hot.json`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const posts = data.data.children;
+      const titles = posts.map((post) => post.data.title);
+      return titles;
+    })
+    .catch((error) => console.error(error));
 }
 
 async function queryGPT(query) {
@@ -117,14 +112,14 @@ async function queryGPT(query) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer "
+      Authorization: "Bearer ",
     },
     body: JSON.stringify({
-      "model": "gpt-3.5-turbo",
-      "messages": [{"role": "user", "content": query}]
-    })
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: query }],
+    }),
   });
-  
+
   const data = await response.json();
   console.log(data.choices[0].message.content);
   const jsonString = JSON.stringify(data.choices[0].message.content);
@@ -134,71 +129,73 @@ async function queryGPT(query) {
 
 async function generateArticleBones() {
   return getSubredditPostTitles(NATIONAL)
-    .then(nationalHeadlines => {
-      return getSubredditPostTitles(CHICAGO)
-        .then(chicagoHeadlines => {
-          return getSubredditPostTitles(ONION)
-            .then(onionHeadlines => {
-              const query = createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines);
+    .then((nationalHeadlines) => {
+      return getSubredditPostTitles(CHICAGO).then((chicagoHeadlines) => {
+        return getSubredditPostTitles(ONION).then((onionHeadlines) => {
+          const query = createQuery(
+            nationalHeadlines,
+            chicagoHeadlines,
+            onionHeadlines
+          );
 
-              return queryGPT(query.nQuery)
-                .then(nationalArticleBones => {
-                  return {
-                        national: nationalArticleBones
-                      };
-                });
-            });
+          return queryGPT(query.nQuery).then((nationalArticleBones) => {
+            return {
+              national: nationalArticleBones,
+            };
+          });
         });
+      });
     })
-    .catch(error => {
+    .catch((error) => {
       throw new Error("Unable to generate article bones - " + error.message);
     });
 }
 
 async function getUnsplashImage(query, apiKey) {
-    const url = `https://api.unsplash.com/photos/random?query=${query}&client_id=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.urls.regular;
-  }
-  
+  const url = `https://api.unsplash.com/photos/random?query=${query}&client_id=${apiKey}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.urls.regular;
+}
+
 async function generateArticle() {
   const database = await initFirebase();
-  const articlesRef = ref(database, 'articles/');
+  const articlesRef = ref(database, "articles/");
 
-    const articles = await generateArticleBones();
-    const nationalObj = JSON.parse(articles.national);
-    // const chicagoObj = JSON.parse(articles.chicago);
-    
-    console.log(nationalObj);
-    console.log(typeof(nationalObj));
+  const articles = await generateArticleBones();
+  const nationalObj = JSON.parse(articles.national);
+  // const chicagoObj = JSON.parse(articles.chicago);
 
-    const nationalImage = await getUnsplashImage(nationalObj.keyword, "");
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-    const year = today.getFullYear();
-    const dateString = `${month}/${day}/${year}`;
-    const nationalArticle = {
-      title: nationalObj.headline,
-      content: nationalObj.article,
-      image: nationalImage,
-      path: nationalObj.path,
-      date: dateString
-    };
-    // const chicagoArticle = {
-    //   title: chicagoObj.headline,
-    //   content: chicagoObj.article,
-    //   image: chicagoImage,
-    //   path: chicagoObj.path,
-    //   date: dateString
-    // }
-    console.log("Writing articles to database");
+  console.log(nationalObj);
+  console.log(typeof nationalObj);
 
-    set(ref(database, 'articles/' + nationalArticle.path), nationalArticle);
-    return;
-    // set(sRef(articlesRef, 'articles/' + chicagoArticle.path), chicagoArticle);
-};
+  const nationalImage = await getUnsplashImage(nationalObj.keyword, "");
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0"); // January is 0!
+  const year = today.getFullYear();
+  const dateString = `${month}/${day}/${year}`;
+  const nationalArticle = {
+    title: nationalObj.headline,
+    content: nationalObj.article,
+    image: nationalImage,
+    path: nationalObj.path,
+    date: dateString,
+  };
+  // const chicagoArticle = {
+  //   title: chicagoObj.headline,
+  //   content: chicagoObj.article,
+  //   image: chicagoImage,
+  //   path: chicagoObj.path,
+  //   date: dateString
+  // }
+  console.log("Writing articles to database");
 
-await generateArticle().then(() => {throw new Error();});
+  set(ref(database, "articles/" + nationalArticle.path), nationalArticle);
+  return;
+  // set(sRef(articlesRef, 'articles/' + chicagoArticle.path), chicagoArticle);
+}
 
+await generateArticle().then(() => {
+  throw new Error();
+});

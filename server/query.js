@@ -1,12 +1,12 @@
 function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
-    const nationalQuery = `
+  const nationalQuery = `
         Write me ONE hilarious Onion-style satirical headline and article based on the following recent headlines:
         
-        ${nationalHeadlines.concat(chicagoHeadlines).join('\n')}
+        ${nationalHeadlines.concat(chicagoHeadlines).join("\n")}
 
         The headlines should be similar to headlines from The Onion. To help you out, here are some examples of headlines from The Onion:
         
-        ${onionHeadlines.join('\n')}
+        ${onionHeadlines.join("\n")}
 
         Make the headline AND the article as funny as possible. The article should be 3 short paragraphs in length and each paragraph should be separated by the code 1234.
         
@@ -26,20 +26,20 @@ function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
         }
 
         As a reminder, I only want one extremely funny headline, an article 3 paragraphs in length, and its URL path. Do not answer with anything besides the JavaScript object I requested.
-    `
+    `;
 
-    const chicagoQuery = `
+  const chicagoQuery = `
         Write me ONE hilarious Onion-style satirical headline and article, based on the following recent headlines:
 
-        ${nationalHeadlines.join('\n')}
+        ${nationalHeadlines.join("\n")}
 
         I want the headline and article to be focused on Chicago, in some way. You can use any detail about the city's history, culture, or current events. To help you out, here are some recent headlines from Chicago news:
         
-        ${chicagoHeadlines.join('\n')}
+        ${chicagoHeadlines.join("\n")}
 
         The headlines should be similar to headlines from The Onion. To help you out, here are some examples of headlines from The Onion:
         
-        ${onionHeadlines.join('\n')}
+        ${onionHeadlines.join("\n")}
     
         Make the headline AND the article as funny as possible. The article should be 3 short paragraphs in length and each paragraph should be separated by the code 1234.
         
@@ -59,12 +59,12 @@ function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
         }
 
         As a reminder, I only want one extremely funny headline, an article 3 paragraphs in length, and its URL path. Do not answer with anything besides the JavaScript object I requested.
-    `
+    `;
 
-    return {
-        nQuery: nationalQuery,
-        cQuery: chicagoQuery
-    };
+  return {
+    nQuery: nationalQuery,
+    cQuery: chicagoQuery,
+  };
 }
 
 export default createQuery;
