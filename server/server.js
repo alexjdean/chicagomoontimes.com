@@ -1,9 +1,13 @@
 import express from 'express';
 import path from 'path';
 import helmet from 'helmet';
-import getArticles from './firebase.js';
+import yes from 'yes-https';
+import {getArticles, incrementNumVisitors} from './firebase.js';
 
 const app = express();
+
+app.use(yes());
+
 const __dirname = path.resolve(path.dirname('')); 
 
 app.use(express.static(path.join(__dirname, "/build")));
@@ -16,22 +20,26 @@ app.use(function (req, res, next) {
 
 app.use(helmet());
 
-app.get('/', (req, res) => {
-  if (!req.secure) {
-      res.redirect(301, "https://" + req.headers.host + req.originalUrl);
-  }
-  res.status(200).send("hello, world\n").end();
-});
-
 app.get('/articles', async (req, res) => {
   const articles = await getArticles();
   res.send(articles);
 });
 
+app.get('/health', async (req, res) => {
+  console.log('I am healthy');
+  res.send('OK');
+});
+
+app.post('/visit/:path', async (req, res) => {
+  const { path } = req.params; // Get the article path from the URL parameter
+  await incrementNumVisitors(path);
+  res.send('OK');
+});
+
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-  
+ 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

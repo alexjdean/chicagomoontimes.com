@@ -3,8 +3,8 @@ import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import config from 'config';
 
-const NATIONAL = "usnews";
-const CHICAGO = "illinois";
+const NATIONAL = "chicago";
+const CHICAGO = "politics";
 const ONION = "theonion";
 
 export async function initFirebase() {
@@ -48,10 +48,10 @@ function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
         
         ${onionHeadlines.join('\n')}
 
-        Make the headline AND the article as funny as possible. The article should be 3 short paragraphs in length and each paragraph should be separated by the code 1234.
+        Make the headline AND the article as funny as possible. The article should be four paragraphs in length and each paragraph should be separated by the code 1234.
         
         For example, I want an article like this:
-        This is the first paragraph. 1234 This is the second paragraph. 1234 This is the third paragraph.
+        This is the first paragraph. 1234 This is the second paragraph. 1234 This is the third paragraph. 1234 This is the fourth paragraph.
 
         I would also like a URL-friendly path based on the title. For example, if the title is "This is a title", the path should be "this-is-a-title". You can skip certain stop words, make the URL path short (6 words maximum).
 

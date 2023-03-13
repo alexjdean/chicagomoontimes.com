@@ -18,6 +18,3 @@ handlers:
 - url: /favicon.ico
   static_files: static/images/favicon.ico
   upload: static/images/favicon.ico
-
-readiness_check:
-  app_start_timeout_sec: 1000

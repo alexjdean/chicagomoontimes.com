@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./article.css"
-import ReactGA from 'react-ga';
 
 function CreateParagraph(sentences) {
   return (<div>
@@ -22,7 +21,15 @@ function parseContent(content) {
 } 
 
 function Article(props) {
-  ReactGA.pageview('/' + props.path);
+  useEffect(() => {
+    fetch(`https://chicagomoontimes.com/visit/${props.path}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ path: '/articles/' + props.path })
+    });
+  }, [props.path]);
 
   return (
       <div className='page-structs'>

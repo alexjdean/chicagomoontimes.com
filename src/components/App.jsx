@@ -3,12 +3,10 @@ import Navbar from "./Navbar"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages';
 import About from './pages/about';
-// import Contact from './pages/contact'
 import Footer from './Footer'
 import Article from "./pages/article"
 import ScrollToTop from './ScrollToTop';
 import { formatDate } from './util/helper';
-import ReactGA from 'react-ga';
 
 function createArticleRoutes(article) {
     return (<Route path={article.path}
@@ -22,10 +20,8 @@ function createArticleRoutes(article) {
 }
 
 function App() {
-    ReactGA.initialize('G-4XQX4Z413N');
-    ReactGA.pageview('/');  
-    
     const [articles, setArticles] = useState([]);
+    const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
         async function fetchArticles() {
@@ -37,14 +33,31 @@ function App() {
         fetchArticles();
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+          if (window.location.pathname === '/') {
+            setScrollPosition(window.pageYOffset);
+          }
+        };
+      
+        window.addEventListener('scroll', handleScroll, { passive: true });
+      
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
     return <div>
     <Router>
         <Navbar />
         <ScrollToTop />
         <Routes>
-            <Route path='/' element={<Home articles={articles} />} />
+            <Route path='/' element={<Home 
+                articles={articles} 
+                setScrollPosition={setScrollPosition}
+                scrollPosition={scrollPosition}
+            />} />
             <Route path='/about' element={<About />} />
-            {/* <Route path='/contact' element={<Contact />} /> */}
             {articles.map(createArticleRoutes)}
         </Routes>
         <Footer />

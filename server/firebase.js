@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, get, update, increment } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import config from 'config';
 
@@ -35,6 +35,12 @@ async function initFirebase() {
         reject(error);
       });
   });
+}
+
+export async function incrementNumVisitors(path) {
+  const database = await initFirebase();
+  const articleRef = ref(database, `articles/${path}`);
+  update(articleRef, { numVisitors: increment(1) });
 }
 
 export async function getArticles() {

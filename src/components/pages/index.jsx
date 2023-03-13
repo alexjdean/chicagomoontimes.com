@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import Card from "../Card"
 import { Link } from 'react-router-dom';
 import {formatDate, headerDate} from '../util/helper';
@@ -17,8 +17,14 @@ function createCard(article) {
   </>);
 }
 
-const Home = ({ articles }) => {
+const Home = ({ articles, scrollPosition }) => {
   const sortedArticles = articles.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // useEffect(() => {
+  //   if (scrollPosition !== 0) {
+  //     window.scrollTo(0, scrollPosition);
+  //   }
+  // }, [scrollPosition]);
   
   return (
     <div className='page-format'>
