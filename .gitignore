@@ -6,3 +6,4 @@ server/config/
 .firebase/
 firebase-debug.log
 infrastructure/
+.DS_Store

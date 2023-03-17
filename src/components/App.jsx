@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         async function fetchArticles() {
-            const articleList = await fetch('https://chicagomoontimes.com/articles/');
+            const articleList = await fetch('https://chicagomoontimes.com/api/articles');
             const data = await articleList.json();
             setArticles(data);
         }

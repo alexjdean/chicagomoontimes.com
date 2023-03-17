@@ -10,7 +10,7 @@ function CreateParagraph(sentences) {
 }
 
 function parseContent(content) {
-  const modifiedContent = content.replace('\n', "1234");
+  const modifiedContent = content.replace('\\n', "1234");
   let result = modifiedContent.split("1234");
   
   return (
@@ -22,7 +22,7 @@ function parseContent(content) {
 
 function Article(props) {
   useEffect(() => {
-    fetch(`https://chicagomoontimes.com/visit/${props.path}`, {
+    fetch(`https://chicagomoontimes.com/api/visit/${props.path}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

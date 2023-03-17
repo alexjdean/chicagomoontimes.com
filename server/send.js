@@ -3,8 +3,8 @@ import { getDatabase, ref, set } from "firebase/database";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import config from 'config';
 
-const NATIONAL = "chicago";
-const CHICAGO = "politics";
+const NATIONAL = "news";
+const CHICAGO = "chicago";
 const ONION = "theonion";
 
 export async function initFirebase() {
@@ -37,12 +37,13 @@ export async function initFirebase() {
       });
   });
 }
+// ${nationalHeadlines.concat(chicagoHeadlines).join('\n')}
 
 function createQuery(nationalHeadlines, chicagoHeadlines, onionHeadlines) {
     const nationalQuery = `
         Write me ONE hilarious Onion-style satirical headline and article based on the following recent headlines:
         
-        ${nationalHeadlines.concat(chicagoHeadlines).join('\n')}
+        ${nationalHeadlines.join('\n')}
 
         The headlines should be similar to headlines from The Onion. To help you out, here are some examples of headlines from The Onion:
         
@@ -211,3 +212,5 @@ async function generateArticle() {
 
 await generateArticle().then(() => {throw new Error();});
 
+
+// getUnsplashImage("chicago", config.get("Unsplash.API_KEY")).then((data) => console.log(data));

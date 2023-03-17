@@ -1,36 +1,42 @@
 import express from 'express';
 import path from 'path';
 import helmet from 'helmet';
-import yes from 'yes-https';
 import {getArticles, incrementNumVisitors} from './firebase.js';
 
 const app = express();
-
-app.use(yes());
-
 const __dirname = path.resolve(path.dirname('')); 
 
 app.use(express.static(path.join(__dirname, "/build")));
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://chicagomoontimes.com");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+  const allowedOrigins = ['http://chicagomoontimes.com', 'https://chicagomoontimes.com', 'http://www.chicagomoontimes.com', 'https://www.chicagomoontimes.com'];
+  const origin = req.headers.origin;
+
+  if(allowedOrigins.includes(origin)) {
+       res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
-app.get('/articles', async (req, res) => {
+app.get('/api/articles', async (req, res) => {
   const articles = await getArticles();
   res.send(articles);
 });
 
-app.get('/health', async (req, res) => {
+app.get('/api/health', async (req, res) => {
   console.log('I am healthy');
   res.send('OK');
 });
 
-app.post('/visit/:path', async (req, res) => {
+app.post('/api/visit/:path', async (req, res) => {
   const { path } = req.params; // Get the article path from the URL parameter
   await incrementNumVisitors(path);
   res.send('OK');
