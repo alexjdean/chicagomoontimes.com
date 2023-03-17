@@ -1,4 +1,4 @@
-<h1 class="header" align="center">
+<h1 class="header">
 Chicago Moon<img src="src/images/logo.png" width="20">Times
 </h1><br>
 
